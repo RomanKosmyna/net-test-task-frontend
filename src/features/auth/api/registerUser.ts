@@ -1,10 +1,9 @@
 import { API_URL, URLS } from "@config/index";
-import { UserResponse } from "@features/types";
 import { useQuery } from "@tanstack/react-query";
+import { UserResponse } from "@features/types";
 
 export type RegisterCredentialsDTO = {
     username: string;
-    email: string;
     password: string;
 };
 

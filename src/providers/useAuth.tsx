@@ -5,6 +5,7 @@ import { createContext, useEffect, useState } from "react";
 
 import { UserContextType, UserProfile } from "./types";
 import { Bounce, toast } from "react-toastify";
+import { LoginCredentialsDTO, login } from "@features/auth/api/loginUser";
 
 const UserContext = createContext<UserContextType>({} as UserContextType);
 
@@ -46,7 +47,7 @@ export const UserProvider = ({ children }: Props) => {
       setToken(response?.token);
       setUser(userObject!);
 
-      toast.success('User successfully registered!', {
+      toast.success('You have successfully registered.', {
         position: "bottom-center",
         autoClose: 4000,
         hideProgressBar: false,
@@ -75,45 +76,51 @@ export const UserProvider = ({ children }: Props) => {
     }
   };
 
-  // const loginUser = async (
-  //   loginData: LoginCredentialsDTO,
-  //   toast: any
-  // ) => {
-  //   try {
-  //     const response = await login(loginData);
+  const loginUser = async (
+    loginData: LoginCredentialsDTO,
+  ) => {
+    try {
+      const response = await login(loginData);
 
-  //     localStorage.setItem("token", response?.token);
+      localStorage.setItem("token", response?.token);
 
-  //     const userObject = {
-  //       userName: response?.userName,
-  //       email: response?.email
-  //     }
+      const userObject = {
+        userName: response?.userName,
+      }
 
-  //     localStorage.setItem("user", JSON.stringify(userObject));
+      localStorage.setItem("user", JSON.stringify(userObject));
 
-  //     setToken(response?.token);
-  //     setUser(userObject!);
+      setToken(response?.token);
+      setUser(userObject!);
 
-  //     toast({
-  //       title: "Login Status",
-  //       description: "You have successfully logged in.",
-  //       status: "success",
-  //       duration: 3000,
-  //       isClosable: true
-  //     });
-  //     navigate("/");
-  //   } catch (error) {
-  //     const errorMessage = error instanceof Error ? error.message : String(error);
+      toast.success('You have successfully logged in.', {
+        position: "bottom-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "colored",
+        transition: Bounce,
+      });
+      navigate("/");
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
 
-  //     toast({
-  //       title: 'Login Error',
-  //       description: errorMessage,
-  //       status: 'error',
-  //       duration: 3000,
-  //       isClosable: true,
-  //     });
-  //   }
-  // };
+      toast.error(errorMessage, {
+        position: "bottom-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Bounce,
+        });
+    }
+  };
 
   const isLoggedIn = () => {
     return !!user;
@@ -129,7 +136,7 @@ export const UserProvider = ({ children }: Props) => {
 
   return (
     <UserContext.Provider
-      value={{ user, token, registerUser, isLoggedIn, logout }}
+      value={{ user, token, registerUser, loginUser, isLoggedIn, logout }}
     >
       {isReady ? children : null}
     </UserContext.Provider>

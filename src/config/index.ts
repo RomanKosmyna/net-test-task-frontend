@@ -5,5 +5,6 @@ const account = "/account";
 export const URLS = {
     account: {
         register: `${account}/register`,
+        login: `${account}/login`
     }
 };
