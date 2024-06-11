@@ -4,8 +4,9 @@ import { InputField } from "@components/Form/InputField";
 import AccountStatusNavigation from "./AccountStatusNavigation";
 import GuestLink from "./GuestLink";
 
-type LoginFormsInputs = {
+type RegisterFormsInputs = {
     username: string;
+    email: string;
     password: string;
 };
 
@@ -35,21 +36,21 @@ const schema = Joi.object({
         }),
 });
 
-const LoginForm = () => {
-    const handleLogin = (data: LoginFormsInputs) => {
+export default function RegisterForm() {
+    const handleRegister = (data: RegisterFormsInputs) => {
         console.log(data);
     };
-    
+
     return (
         <div>
-            <h1>Sign In</h1>
+            <h1>Register</h1>
             <AccountStatusNavigation
-                text="Do not have an account yet?"
-                linkRoute="/auth/register"
-                linkText="Create one"
+                text="Already have an account?"
+                linkRoute="/auth/login"
+                linkText="Log In"
             />
             <div>
-                <Form schema={schema} onSubmit={handleLogin}>
+                <Form schema={schema} onSubmit={handleRegister}>
                     {({ register, formState }) => (
                         <>
                             <InputField
@@ -64,19 +65,16 @@ const LoginForm = () => {
                                 error={formState.errors.password}
                                 registration={register("password")}
                             />
-                            <div>
+                            <div className="flex justify-center">
                                 <button type="submit">
-                                    Log In
+                                    Register
                                 </button>
                             </div>
                         </>
-                    )
-                    }
-                </Form >
+                    )}
+                </Form>
                 <GuestLink />
-            </div >
-        </div >
+            </div>
+        </div>
     )
-};
-
-export default LoginForm;
+}
