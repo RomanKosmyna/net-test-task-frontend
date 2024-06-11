@@ -3,6 +3,7 @@ import { Form } from "@components/Form/Form";
 import { InputField } from "@components/Form/InputField";
 import AccountStatusNavigation from "./AccountStatusNavigation";
 import GuestLink from "./GuestLink";
+import { useAuth } from "src/providers/useAuth";
 
 type RegisterFormsInputs = {
     username: string;
@@ -37,8 +38,10 @@ const schema = Joi.object({
 });
 
 export default function RegisterForm() {
+    const { registerUser } = useAuth();
+
     const handleRegister = (data: RegisterFormsInputs) => {
-        console.log(data);
+        registerUser(data);
     };
 
     return (
