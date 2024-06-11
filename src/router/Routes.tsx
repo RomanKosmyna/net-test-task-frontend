@@ -4,6 +4,7 @@ import MainLayout from "@features/home/components/MainLayout";
 import AuthLayout from "@features/auth/components/AuthLayout";
 import LoginForm from "@features/auth/components/LoginForm";
 import RegisterForm from "@features/auth/components/RegisterForm";
+import HomePage from "@features/home/components/HomePage";
 
 export const router = createBrowserRouter([
     {
@@ -12,7 +13,13 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <MainLayout />
+                element: <MainLayout />,
+                children: [
+                    {
+                        path: "/",
+                        element: <HomePage />
+                    }
+                ]
             },
             {
                 path: "/auth",
