@@ -1,11 +1,11 @@
 import React from "react";
+import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { RegisterCredentialsDTO, register } from "@features/auth/api/registerUser";
-import { createContext, useEffect, useState } from "react";
+import { LoginCredentialsDTO, login } from "@features/auth/api/loginUser";
+import { Bounce, toast } from "react-toastify";
 
 import { UserContextType, UserProfile } from "./types";
-import { Bounce, toast } from "react-toastify";
-import { LoginCredentialsDTO, login } from "@features/auth/api/loginUser";
 
 const UserContext = createContext<UserContextType>({} as UserContextType);
 
