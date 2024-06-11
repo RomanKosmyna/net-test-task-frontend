@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 const MainLayout = () => {
 
     return (
-        <div className="w-full min-h-svh flex items-center flex-col">
+        <div className="w-full min-h-svh bg-main flex items-center flex-col">
             <Header />
             <Outlet />
         </div>

@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { API_URL, URLS } from "@config/index";
 import { UrlType } from "../types";
 
@@ -22,9 +22,9 @@ export const addUrl = async (
 };
 
 export const useAddUrl = (token: string, requestBody: UrlType) => {
-    return useQuery({
-        queryKey: ['addUrl'],
-        queryFn: () => addUrl(token, requestBody),
+    return useMutation({
+        mutationKey: ['addUrl'],
+        mutationFn: () => addUrl(token, requestBody),
         retry: false
     });
 };

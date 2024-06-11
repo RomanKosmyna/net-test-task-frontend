@@ -13,6 +13,6 @@ export const URLS = {
         getById: (id: string | undefined) => `${url}/url/${id}`,
         add: `${url}/url`,
         delete: (id: string | undefined) => `${url}/url/${id}`,
-        redirect: (shortenUrl: string | undefined) => `${url}/shortenUrl/${shortenUrl}`
+        redirect: (shortenUrl: string | undefined) => `${url}/${shortenUrl}`
     }
 };
