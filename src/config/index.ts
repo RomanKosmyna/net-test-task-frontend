@@ -10,9 +10,9 @@ export const URLS = {
     },
     url: {
         getAll: `${url}/urls`,
-        getById: (id: string) => `${url}/url/${id}`,
+        getById: (id: string | undefined) => `${url}/url/${id}`,
         add: `${url}/url`,
-        delete: (id: string) => `${url}/url/${id}`,
-        redirect: (shortenUrl: string) => `${url}/shortenUrl/${shortenUrl}`
+        delete: (id: string | undefined) => `${url}/url/${id}`,
+        redirect: (shortenUrl: string | undefined) => `${url}/shortenUrl/${shortenUrl}`
     }
 };
