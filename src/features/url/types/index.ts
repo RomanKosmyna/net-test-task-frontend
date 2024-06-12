@@ -7,6 +7,7 @@ export type UrlType = {
 };
 
 export type UserUrlType = {
+    userId: string;
     originalUrl: string;
     createdBy: string;
 };

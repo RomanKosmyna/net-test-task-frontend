@@ -6,7 +6,7 @@ const Header = () => {
     const { isLoggedIn, logout } = useAuth();
 
     return (
-        <header className="w-full h-[84px] max-w-[1100px] flex justify-between items-center px-5">
+        <header className="w-full h-[84px] max-w-[1100px] bg-main flex justify-between items-center px-5 fixed z-20">
             <HeaderNavigation />
             <div>
                 {isLoggedIn() ? (

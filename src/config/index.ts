@@ -8,7 +8,7 @@ export const URLS = {
     account: {
         register: `${account}/register`,
         login: `${account}/login`,
-        findUserByToken: `${account}/finduserbytoken`
+        findUserIdByToken: `${account}/finduseridbytoken`
     },
     about: {
         getById: (id: string | undefined) => `${about}/${id}`,

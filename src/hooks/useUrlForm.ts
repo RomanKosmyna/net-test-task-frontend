@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { getToken, getUser } from "src/utils/localStorageUtils";
+import { getToken, getUser } from "@utils/localStorageUtils";
 import { addUrl } from "@features/url/api/addUrl";
+import { findUserByToken } from "@features/auth/api/findUserByToken";
 import { Bounce, toast } from "react-toastify";
 
 import { UrlType, UserUrlType } from "@features/url/types";
@@ -23,9 +24,11 @@ export const useUrlForm = (onUrlAdded: () => void) => {
 
     const handleUrlChange = (event: React.ChangeEvent<HTMLInputElement>) => setUrl(event.target.value);
 
-    const handleShortenUrl = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleShortenUrl = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
+        const findUser = await findUserByToken(token);
+        console.log(findUser)
         const data = {
             originalUrl: url,
             createdBy: userName

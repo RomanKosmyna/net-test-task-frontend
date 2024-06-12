@@ -1,6 +1,6 @@
 import { API_URL, URLS } from "@config/index";
 
-export const findUserByToken = async (token: string | null) => {
+export const findUserIdByToken = async (token: string | null) => {
     const response = await fetch(API_URL + URLS.account.findUserByToken, {
         method: "POST",
         headers: {
@@ -13,6 +13,6 @@ export const findUserByToken = async (token: string | null) => {
     if (!response.ok) {
         throw new Error(response.statusText);
     }
-
-    return true;
+    console.log(response);
+    return response.json();
 };
