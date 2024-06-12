@@ -1,19 +1,10 @@
 import { API_URL, URLS } from "@config/index";
-import { findUserIdByToken } from "@features/auth/api/findUserIdByToken";
 
-import { UrlType, AddUrlType } from "../types";
+import { UserUrlType, UrlType } from "../types";
 
 export const addUrl = async (
-    token: string | null, requestBody: AddUrlType
+    token: string | null, requestBody: UserUrlType
 ): Promise<UrlType> => {
-
-    const userId = await findUserIdByToken(token);
-
-    const updatedRequestBody = {
-        userId,
-        originalUrl: requestBody.originalUrl,
-        createdBy: requestBody.createdBy
-    };
 
     const response = await fetch(API_URL + URLS.url.add, {
         method: "POST",
@@ -21,7 +12,7 @@ export const addUrl = async (
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
         },
-        body: JSON.stringify(updatedRequestBody),
+        body: JSON.stringify(requestBody),
     });
 
     if (!response.ok) {

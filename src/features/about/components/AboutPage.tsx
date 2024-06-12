@@ -11,6 +11,7 @@ import EmptyRequestData from "@components/EmptyData/EmptyRequestData";
 import { useUpdateAbout } from "../api/updateAbout";
 import { getToken } from "@utils/localStorageUtils";
 import { Bounce, toast } from "react-toastify";
+import DescriptionFormatter from "./DescriptionFormatter";
 
 export const AboutPage = () => {
     const aboutId = "3fa85f64-5717-4562-b3fc-2c963f66afa6";
@@ -92,7 +93,7 @@ export const AboutPage = () => {
                         setText={setText}
                     />
                 ) : (
-                    <p className="w-full flex-grow font-medium text-heading text-wrap">{description}</p>
+                    <DescriptionFormatter description={description} />
                 )}
             </div>
         </GeneralLayout>

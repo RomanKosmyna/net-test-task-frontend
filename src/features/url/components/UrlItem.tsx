@@ -3,6 +3,7 @@ import SeparationLine from "@components/Elements/SeparationLine";
 import RemoveUrl from "./RemoveUrl";
 import ViewDetailsLink from "./ViewDetailsLink";
 import { checkUserRole } from "@utils/checkUserRole";
+import { checkUserId } from "@utils/checkUserId";
 
 import { UrlType } from "../types";
 
@@ -12,9 +13,10 @@ type Props = {
 };
 
 export default function UrlItem({ url, onDelete }: Props) {
-    const { id, originalUrl, shortenedVersion } = url;
+    const { id, userId, originalUrl, shortenedVersion } = url;
     const role = checkUserRole();
-
+    const activeUserId = checkUserId();
+    
     return (
         <li className="bg-card rounded-md px-5 py-2 flex flex-col justify-between gap-4 pb-3">
             <div>
@@ -42,7 +44,12 @@ export default function UrlItem({ url, onDelete }: Props) {
             {role === "Admin" || role === "User" ? (
                 <div className="flex items-center gap-3">
                     <ViewDetailsLink id={id} />
-                    <RemoveUrl id={id} onDelete={onDelete} />
+                    {role === "Admin" && (
+                        <RemoveUrl id={id} onDelete={onDelete} />
+                    )}
+                    {role === "User" && activeUserId === userId && (
+                        <RemoveUrl id={id} onDelete={onDelete} />
+                    )}
                 </div>
             ) : null}
 
