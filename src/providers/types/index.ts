@@ -7,7 +7,6 @@ export type UserContextType = {
     registerUser: (data: RegisterCredentialsDTO) => void;
     loginUser: (data: LoginCredentialsDTO) => void;
     isLoggedIn: () => boolean;
-    checkUser: () => boolean;
     logout: () => void;
 };
 

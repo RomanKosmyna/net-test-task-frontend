@@ -16,7 +16,7 @@ export default function UrlItem({ url, onDelete }: Props) {
     const role = checkUserRole();
 
     return (
-        <li className="bg-card rounded-md px-5 py-2 flex flex-col gap-4 pb-3">
+        <li className="bg-card rounded-md px-5 py-2 flex flex-col justify-between gap-4 pb-3">
             <div>
                 <h3 className="font-bold text-heading text-[35px]">Original URL</h3>
                 <Link

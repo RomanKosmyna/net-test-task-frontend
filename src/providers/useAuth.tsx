@@ -6,8 +6,6 @@ import { LoginCredentialsDTO, login } from "@features/auth/api/loginUser";
 import { Bounce, toast } from "react-toastify";
 
 import { UserContextType, UserProfile } from "./types";
-import { getToken } from "@utils/localStorageUtils";
-import { findUserByToken } from "@features/auth/api/findUserByToken";
 
 const UserContext = createContext<UserContextType>({} as UserContextType);
 
@@ -128,19 +126,6 @@ export const UserProvider = ({ children }: Props) => {
     return !!user;
   };
 
-  const checkUser = async () => {
-    const token = getToken();
-
-    if (!token) return false;
-
-    const user = await findUserByToken(token);
-
-    if (!user) {
-      return false;
-    }
-    return true;
-  };
-
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -151,7 +136,7 @@ export const UserProvider = ({ children }: Props) => {
 
   return (
     <UserContext.Provider
-      value={{ user, token, registerUser, loginUser, isLoggedIn, checkUser, logout }}
+      value={{ user, token, registerUser, loginUser, isLoggedIn, logout }}
     >
       {isReady ? children : null}
     </UserContext.Provider>

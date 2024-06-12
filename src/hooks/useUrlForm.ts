@@ -2,10 +2,9 @@ import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { getToken, getUser } from "@utils/localStorageUtils";
 import { addUrl } from "@features/url/api/addUrl";
-import { findUserByToken } from "@features/auth/api/findUserByToken";
 import { Bounce, toast } from "react-toastify";
 
-import { UrlType, UserUrlType } from "@features/url/types";
+import { AddUrlType, UrlType } from "@features/url/types";
 
 export const useUrlForm = (onUrlAdded: () => void) => {
     const token = getToken();
@@ -14,7 +13,7 @@ export const useUrlForm = (onUrlAdded: () => void) => {
     const { userName } = user;
 
     const addUrlMutation = useMutation({
-        mutationFn: (data: UserUrlType) => {
+        mutationFn: (data: AddUrlType) => {
             return addUrl(token, data);
         },
     });
@@ -26,9 +25,7 @@ export const useUrlForm = (onUrlAdded: () => void) => {
 
     const handleShortenUrl = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
-        const findUser = await findUserByToken(token);
-        console.log(findUser)
+        
         const data = {
             originalUrl: url,
             createdBy: userName

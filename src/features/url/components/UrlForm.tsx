@@ -1,6 +1,6 @@
 import { useUrlContext } from "@providers/UrlContext";
 import { useUrlForm } from "@hooks/useUrlForm";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 
 import { UrlType } from "../types";
 
@@ -12,8 +12,10 @@ export const UrlForm = ({ setResponseData }: Props) => {
     const { refetch } = useUrlContext();
 
     const { url, handleUrlChange, handleShortenUrl, responseData } = useUrlForm(refetch);
-    setResponseData(responseData);
-
+    
+    useEffect(() => {
+        setResponseData(responseData);
+    }, [responseData, setResponseData]);
     return (
         <form
             method="POST"

@@ -13,7 +13,7 @@ import { getToken } from "@utils/localStorageUtils";
 import { Bounce, toast } from "react-toastify";
 
 export const AboutPage = () => {
-    const aboutId = "3FA85F64-5717-4562-B3FC-2C963F66AFA6";
+    const aboutId = "3fa85f64-5717-4562-b3fc-2c963f66afa6";
     const role = checkUserRole();
     const token = getToken();
 
