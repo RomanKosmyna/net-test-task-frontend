@@ -5,7 +5,7 @@ type Props = {
 const RequestError = ({ errorMessage }: Props) => {
     return (
         <div className="w-full flex flex-grow justify-center items-center">
-            <h4 className="text-xl">{errorMessage}</h4>
+            <h4 className="text-xl text-[#B91C1C] font-bold">{errorMessage}</h4>
         </div>
     )
 };
