@@ -1,10 +1,13 @@
+import { useUrlContext } from "@providers/UrlContext";
 import { useUrlForm } from "@hooks/useUrlForm";
+import UrlResult from "./UrlResult";
 
 export const UrlForm = () => {
-    const { url, handleUrlChange, handleShortenUrl } = useUrlForm();
+    const { refetch } = useUrlContext();
+    const { url, handleUrlChange, handleShortenUrl, responseData } = useUrlForm(refetch);
 
     return (
-        <div className="w-full flex">
+        <div className="w-full flex flex-col">
             <form
                 action=""
                 method="POST"
@@ -29,6 +32,7 @@ export const UrlForm = () => {
                     Shorten Url
                 </button>
             </form>
+            <UrlResult url={responseData} />
         </div>
     )
 };

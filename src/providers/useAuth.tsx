@@ -47,15 +47,15 @@ export const UserProvider = ({ children }: Props) => {
       setToken(response?.token);
       setUser(userObject!);
 
-      toast.success('You have successfully registered.', {
+      toast.success('You have successfully registered', {
         position: "bottom-center",
+        className: "toast-success-message",
         autoClose: 4000,
-        hideProgressBar: false,
+        hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: false,
         progress: undefined,
-        theme: "colored",
         transition: Bounce,
       });
       navigate("/");
@@ -64,15 +64,15 @@ export const UserProvider = ({ children }: Props) => {
 
       toast.error(errorMessage, {
         position: "bottom-center",
+        className: "toast-error-message",
         autoClose: 4000,
-        hideProgressBar: false,
+        hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
-        draggable: true,
+        draggable: false,
         progress: undefined,
-        theme: "colored",
         transition: Bounce,
-        });
+      });
     }
   };
 
@@ -93,15 +93,15 @@ export const UserProvider = ({ children }: Props) => {
       setToken(response?.token);
       setUser(userObject!);
 
-      toast.success('You have successfully logged in.', {
+      toast.success('You have successfully logged in', {
         position: "bottom-center",
+        className: "toast-success-message",
         autoClose: 4000,
-        hideProgressBar: false,
+        hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: false,
         progress: undefined,
-        theme: "colored",
         transition: Bounce,
       });
       navigate("/");
@@ -110,15 +110,15 @@ export const UserProvider = ({ children }: Props) => {
 
       toast.error(errorMessage, {
         position: "bottom-center",
+        className: "toast-error-message",
         autoClose: 4000,
-        hideProgressBar: false,
+        hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
-        draggable: true,
+        draggable: false,
         progress: undefined,
-        theme: "colored",
         transition: Bounce,
-        });
+      });
     }
   };
 

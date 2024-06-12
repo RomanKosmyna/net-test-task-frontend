@@ -1,5 +1,5 @@
 type Props = {
-    errorMessage: string;
+    errorMessage: string | undefined;
 };
 
 const RequestError = ({ errorMessage }: Props) => {
