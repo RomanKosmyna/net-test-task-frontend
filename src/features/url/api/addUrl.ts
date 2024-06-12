@@ -1,10 +1,11 @@
-import { useMutation } from "@tanstack/react-query";
 import { API_URL, URLS } from "@config/index";
-import { UrlType } from "../types";
+
+import { UrlType, UserUrlType } from "../types";
 
 export const addUrl = async (
-    token: string, requestBody: UrlType
+    token: string, requestBody: UserUrlType
 ): Promise<UrlType> => {
+    
     const response = await fetch(API_URL + URLS.url.add, {
         method: "POST",
         headers: {
@@ -19,12 +20,4 @@ export const addUrl = async (
     }
 
     return response.json();
-};
-
-export const useAddUrl = (token: string, requestBody: UrlType) => {
-    return useMutation({
-        mutationKey: ['addUrl'],
-        mutationFn: () => addUrl(token, requestBody),
-        retry: false
-    });
 };

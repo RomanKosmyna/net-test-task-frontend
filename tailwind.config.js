@@ -13,6 +13,7 @@ export default {
         heading: "#efefef",
         lightBlue: "#0070f3",
         darkerLightBlue: "#005cdf",
+        inputBorder: "#373737"
       },
       boxShadow: {
         dark: "inset 0 -1px hsla(0,0%,100%,.14)",

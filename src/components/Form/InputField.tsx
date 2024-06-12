@@ -14,7 +14,6 @@ export const InputField = (props: InputFieldProps) => {
     return (
         <FieldWrapper label={label} error={error}>
             <input
-            className="text-black"
                 type={type}
                 {...registration}
             />

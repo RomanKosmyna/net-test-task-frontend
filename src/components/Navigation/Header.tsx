@@ -9,18 +9,40 @@ const Header = () => {
             <nav>
                 <ul className="flex gap-5">
                     <li>
-                        <Link to={"/"}>Home</Link>
+                        <Link
+                            to={"/"}
+                            className="text-heading"
+                        >
+                            Home
+                        </Link>
                     </li>
                     <li>
-                        <Link to={"/about"}>About</Link>
+                        <Link
+                            to={"/about"}
+                            className="text-heading"
+                        >
+                            About
+                        </Link>
                     </li>
                 </ul>
             </nav>
             <div>
                 {isLoggedIn() ? (
-                    <button onClick={logout}>Log Out</button>
+                    <button
+                        onClick={logout}
+                        className="bg-red-700 text-heading font-medium rounded-md 
+                        px-4 py-1 transition-opacity hover:opacity-90"
+                    >
+                        Log Out
+                    </button>
                 ) : (
-                    <Link to={"/auth/login"}>Sign In</Link>
+                    <Link
+                        to={"/auth/login"}
+                        className="bg-green-700 text-heading font-medium rounded-md 
+                        px-4 py-1 transition-opacity hover:opacity-90"
+                    >
+                        Sign In
+                    </Link>
                 )}
             </div>
         </header>

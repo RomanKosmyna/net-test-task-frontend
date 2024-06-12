@@ -4,3 +4,8 @@ export type UrlType = {
     shortenedVersion: string;
     createdBy: string;
 };
+
+export type UserUrlType = {
+    originalUrl: string;
+    createdBy: string;
+};

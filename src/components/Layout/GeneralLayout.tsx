@@ -4,7 +4,7 @@ type GeneralLayoutProps = {
 
 const GeneralLayout = ({ children }: GeneralLayoutProps) => {
     return (
-        <main className="w-full max-w-[1100px] min-h-[calc(100vh-84px)] flex flex-col pt-[64px]">
+        <main className="w-full max-w-[1100px] min-h-[calc(100vh-84px)] flex flex-col pt-[44px]">
             {children}
         </main>
     )

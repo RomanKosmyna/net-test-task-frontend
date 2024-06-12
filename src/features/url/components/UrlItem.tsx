@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import { UrlType } from "../types";
 import SeparationLine from "@components/Elements/SeparationLine";
 import RemoveUrl from "./RemoveUrl";
 import ViewDetails from "./ViewDetails";
+
+import { UrlType } from "../types";
 
 type Props = {
     url: UrlType;
@@ -15,7 +16,7 @@ export default function UrlItem({ url, onDelete }: Props) {
     return (
         <li className="bg-card rounded-md px-5 py-2 flex flex-col gap-4 pb-3">
             <div>
-                <h3 className="font-bold text-darkHeading text-[35px]">Original URL</h3>
+                <h3 className="font-bold text-heading text-[35px]">Original URL</h3>
                 <Link
                     to={originalUrl}
                     className="font-medium text-lightBlue hover:text-darkerLightBlue hover:underline
@@ -26,7 +27,7 @@ export default function UrlItem({ url, onDelete }: Props) {
             </div>
             <SeparationLine />
             <div>
-                <h3 className="font-bold text-darkHeading text-[35px]">Shortened URL</h3>
+                <h3 className="font-bold text-heading text-[35px]">Shortened URL</h3>
                 <Link
                     to={originalUrl}
                     className="font-medium text-lightBlue hover:text-darkerLightBlue hover:underline

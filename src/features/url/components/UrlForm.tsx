@@ -1,33 +1,25 @@
-import { useState } from "react";
-import { useAddUrl } from "../api/addUrl";
-import { Input } from '@chakra-ui/react';
+import { useUrlForm } from "@hooks/useUrlForm";
 
 export const UrlForm = () => {
-    const token = localStorage.getItem("token")!;
-    const addUrlMutation = useAddUrl();
-
-    const [value, setValue] = useState("");
-    const handleChange = (event: any) => setValue(event.target.value);
-
-    const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        await addUrlMutation.mutateAsync({ token, requestBody: { fullUrl: url } });
-        setUrl('');
-    };
+    const { url, handleUrlChange, handleShortenUrl } = useUrlForm();
 
     return (
         <div className="w-full flex">
-            <form action="" method="POST" className="w-full flex justify-center gap-2">
-                <Input
-                    value={value}
-                    onChange={handleChange}
-                    focusBorderColor="#0070f3"
+            <form
+                action=""
+                method="POST"
+                onSubmit={handleShortenUrl}
+                className="w-full flex justify-center gap-2"
+            >
+                <input
                     type="url"
-                    placeholder="Enter the link here"
-                    _placeholder={{ color: '#fff' }}
-                    className="text-white"
-                    size='lg'
-                    maxWidth={500}
+                    value={url}
+                    onChange={handleUrlChange}
+                    placeholder="Enter your link here"
+                    className={`w-full h-[45px] max-w-[500px] px-3 py-2 border bg-main 
+                        border-inputBorder rounded-md focus:outline-none focus:ring-blue-500 
+                        focus:border-blue-500 sm:text-sm text-white placeholder-[#666]
+                        font-medium`}
                 />
                 <button
                     type="submit"
