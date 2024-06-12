@@ -3,6 +3,7 @@ export type UrlType = {
     originalUrl: string;
     shortenedVersion: string;
     createdBy: string;
+    expirationDate?: string;
 };
 
 export type UserUrlType = {

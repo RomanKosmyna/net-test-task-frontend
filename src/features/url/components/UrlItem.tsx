@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import SeparationLine from "@components/Elements/SeparationLine";
 import RemoveUrl from "./RemoveUrl";
-import ViewDetails from "./ViewDetails";
+import ViewDetailsLink from "./ViewDetailsLink";
+import { checkUserRole } from "@utils/checkUserRole";
 
 import { UrlType } from "../types";
 
@@ -12,6 +13,7 @@ type Props = {
 
 export default function UrlItem({ url, onDelete }: Props) {
     const { id, originalUrl, shortenedVersion } = url;
+    const role = checkUserRole();
 
     return (
         <li className="bg-card rounded-md px-5 py-2 flex flex-col gap-4 pb-3">
@@ -37,10 +39,13 @@ export default function UrlItem({ url, onDelete }: Props) {
                 </Link>
             </div>
             <SeparationLine />
-            <div className="flex items-center gap-3">
-                <ViewDetails id={id} />
-                <RemoveUrl id={id} onDelete={onDelete} />
-            </div>
+            {role === "Admin" || role === "User" ? (
+                <div className="flex items-center gap-3">
+                    <ViewDetailsLink id={id} />
+                    <RemoveUrl id={id} onDelete={onDelete} />
+                </div>
+            ) : null}
+
         </li>
     )
 }

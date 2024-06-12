@@ -1,10 +1,14 @@
 import { useUrlContext } from "@providers/UrlContext";
 import { useUrlForm } from "@hooks/useUrlForm";
 import UrlResult from "./UrlResult";
+import { checkUserRole } from "@utils/checkUserRole";
 
 export const UrlForm = () => {
     const { refetch } = useUrlContext();
     const { url, handleUrlChange, handleShortenUrl, responseData } = useUrlForm(refetch);
+
+    const role = checkUserRole();
+    if (role !== "Admin" && role !== "User") return null;
 
     return (
         <div className="w-full flex flex-col">

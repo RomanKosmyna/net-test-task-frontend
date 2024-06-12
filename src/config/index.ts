@@ -6,7 +6,8 @@ const url = "/url";
 export const URLS = {
     account: {
         register: `${account}/register`,
-        login: `${account}/login`
+        login: `${account}/login`,
+        findUserByToken: `${account}/finduserbytoken`
     },
     url: {
         getAll: `${url}/urls`,

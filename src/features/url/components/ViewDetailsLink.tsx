@@ -4,7 +4,7 @@ type Props = {
     id: string | undefined;
 };
 
-export default function ViewDetails({ id }: Props) {
+export default function ViewDetailsLink({ id }: Props) {
     return (
         <Link
             to={`/url/${id}`}

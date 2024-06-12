@@ -6,7 +6,8 @@
       "@config/*": ["src/config/*"],
       "@features/*": ["src/features/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@providers/*": ["src/providers/*"]
+      "@providers/*": ["src/providers/*"],
+      "@utils/*": ["src/utils/*"]
     },
     "target": "ES2020",
     "useDefineForClassFields": true,

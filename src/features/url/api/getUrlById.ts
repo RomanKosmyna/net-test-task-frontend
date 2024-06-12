@@ -3,7 +3,7 @@ import { API_URL, URLS } from "@config/index";
 import { UrlType } from "../types";
 
 export const getUrlById = async (
-    token: string, id: string | undefined
+    token: string | null, id: string | undefined
 ): Promise<UrlType> => {
     const response = await fetch(API_URL + URLS.url.getById(id), {
         method: "GET",
@@ -21,7 +21,7 @@ export const getUrlById = async (
     return response.json();
 };
 
-export const useGetUrlById = (token: string, id: string | undefined) => {
+export const useGetUrlById = (token: string | null, id: string | undefined) => {
     return useQuery({
         queryKey: ['getUrlById', id],
         queryFn: () => getUrlById(token, id),
