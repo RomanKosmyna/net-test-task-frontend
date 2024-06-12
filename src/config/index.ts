@@ -16,10 +16,10 @@ export const URLS = {
         update: (id: string | undefined) => `${about}/${id}` 
     },
     url: {
-        getAll: `${url}/urls`,
-        getById: (id: string | undefined) => `${url}/url/${id}`,
-        add: `${url}/url`,
-        delete: (id: string | undefined) => `${url}/url/${id}`,
+        getAll: `${url}`,
+        getById: (id: string | undefined) => `${url}/${id}`,
+        add: `${url}`,
+        delete: (id: string | undefined) => `${url}/${id}`,
         redirect: (shortenUrl: string | undefined) => `${url}/${shortenUrl}`
     }
 };

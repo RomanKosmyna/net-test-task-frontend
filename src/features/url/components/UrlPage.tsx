@@ -6,7 +6,7 @@ const UrlPage = () => {
 
     return (
         <GeneralLayout>
-            {/* <UrlForm /> */}
+            <UrlForm />
             <UrlList />
         </GeneralLayout>
     )

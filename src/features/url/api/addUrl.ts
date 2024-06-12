@@ -16,7 +16,8 @@ export const addUrl = async (
     });
 
     if (!response.ok) {
-        throw new Error(response.statusText);
+        const errorData = await response.json();
+        throw new Error(errorData.message);
     }
 
     return response.json();

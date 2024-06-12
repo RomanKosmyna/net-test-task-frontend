@@ -53,8 +53,9 @@ export const useUrlForm = (onUrlAdded: () => void) => {
                     transition: Bounce,
                 });
             },
-            onError: (error) => {
-                toast.error(error.message, {
+            onError: (response) => {
+                console.log(response)
+                toast.error(response.message, {
                     position: "bottom-center",
                     className: "toast-error-message",
                     autoClose: 4000,

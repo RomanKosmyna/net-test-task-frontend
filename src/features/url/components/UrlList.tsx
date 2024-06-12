@@ -16,7 +16,7 @@ export const UrlList = () => {
     if (!data?.length) return <EmptyRequestData message="No urls has been found" />
 
     return (
-        <ul className={`w-full grid gap-4 grid-cols-1 mt-4 mb-5 tablet:grid-cols-2 desktop:grid-cols-2
+        <ul className={`w-full grid gap-4 grid-cols-1 mt-4 mb-5 px-5 desktop:px-0 desktop:grid-cols-2
             ${data.length < 3 ? "justify-start" : "justify-between"}`}>
             {data
                 .map((url: UrlType) => (

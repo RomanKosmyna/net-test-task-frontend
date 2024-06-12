@@ -20,6 +20,7 @@ export default {
         darkBorder: "inset 0 0 0 1px hsla(0,0%,100%,.14)",
       },
       screens: {
+        "about": "500px",
         "tablet": "700px",
         "laptop": "900px",
         "desktop": "1150px"

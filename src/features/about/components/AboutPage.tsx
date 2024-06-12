@@ -10,6 +10,7 @@ import RequestError from "@components/Error/RequestError";
 import EmptyRequestData from "@components/EmptyData/EmptyRequestData";
 import { useUpdateAbout } from "../api/updateAbout";
 import { getToken } from "@utils/localStorageUtils";
+import { Bounce, toast } from "react-toastify";
 
 export const AboutPage = () => {
     const aboutId = "3FA85F64-5717-4562-B3FC-2C963F66AFA6";
@@ -32,8 +33,32 @@ export const AboutPage = () => {
         try {
             await mutation.mutateAsync();
             refetch();
+
+            toast.success('You have successfully update information', {
+                position: "bottom-center",
+                className: "toast-success-message",
+                autoClose: 4000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                progress: undefined,
+                transition: Bounce,
+            });
         } catch (error) {
-            console.error("Error updating about:", error);
+            const errorMessage = error instanceof Error ? error.message : String(error);
+
+            toast.error(errorMessage, {
+                position: "bottom-center",
+                className: "toast-error-message",
+                autoClose: 4000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                progress: undefined,
+                transition: Bounce,
+            });
         }
     };
 
@@ -48,7 +73,7 @@ export const AboutPage = () => {
     return (
         <GeneralLayout>
             <div className="flex flex-col gap-4 mt-6 px-5">
-                <div className="flex justify-between items-center">
+                <div className="flex flex-col about:flex-row justify-between items-center">
                     <h3 className="font-bold text-heading text-[35px]">About</h3>
                     {role === "Admin" ? (
                         <EditNavigation
@@ -67,7 +92,7 @@ export const AboutPage = () => {
                         setText={setText}
                     />
                 ) : (
-                    <p className="font-medium text-heading">{description}</p>
+                    <p className="w-full flex-grow font-medium text-heading text-wrap">{description}</p>
                 )}
             </div>
         </GeneralLayout>
