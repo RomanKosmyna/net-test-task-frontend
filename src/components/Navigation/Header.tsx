@@ -13,7 +13,7 @@ const Header = () => {
                     <button
                         onClick={logout}
                         className="bg-red-700 text-heading font-medium rounded-md 
-                        px-4 py-1 transition-opacity hover:opacity-90"
+                        px-7 py-2 transition-opacity hover:opacity-90"
                     >
                         Log Out
                     </button>
@@ -21,7 +21,7 @@ const Header = () => {
                     <Link
                         to={"/auth/login"}
                         className="bg-green-700 text-heading font-medium rounded-md 
-                        px-4 py-1 transition-opacity hover:opacity-90"
+                        px-7 py-2 transition-opacity hover:opacity-90"
                     >
                         Sign In
                     </Link>

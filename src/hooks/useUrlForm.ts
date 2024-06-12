@@ -10,10 +10,6 @@ export const useUrlForm = (onUrlAdded: () => void) => {
     const token = getToken();
     const user = getUser();
 
-    if (!token || !user) {
-        throw new Error("User is not authenticated!");
-    }
-
     const { userName } = user;
 
     const addUrlMutation = useMutation({
@@ -54,7 +50,6 @@ export const useUrlForm = (onUrlAdded: () => void) => {
                 });
             },
             onError: (response) => {
-                console.log(response)
                 toast.error(response.message, {
                     position: "bottom-center",
                     className: "toast-error-message",

@@ -3,7 +3,7 @@ import { API_URL, URLS } from "@config/index";
 import { UrlType, UserUrlType } from "../types";
 
 export const addUrl = async (
-    token: string, requestBody: UserUrlType
+    token: string | null, requestBody: UserUrlType
 ): Promise<UrlType> => {
     
     const response = await fetch(API_URL + URLS.url.add, {
