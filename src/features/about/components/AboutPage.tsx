@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import SeparationLine from "@components/Elements/SeparationLine";
 import GeneralLayout from "@components/Layout/GeneralLayout";
 import { checkUserRole } from "@utils/checkUserRole";
-import { EditInformation } from "./EditInformation";
+import { EditNavigation } from "./EditNavigation";
 import EditableText from "./EditableText";
 import { useGetAboutById } from "../api/getAboutById";
 import PendingSpinner from "@components/Pending/PendingSpinner";
@@ -51,7 +51,7 @@ export const AboutPage = () => {
                 <div className="flex justify-between items-center">
                     <h3 className="font-bold text-heading text-[35px]">About</h3>
                     {role === "Admin" ? (
-                        <EditInformation
+                        <EditNavigation
                             isEditActive={isEditActive}
                             setIsEditActive={setIsEditActive}
                             update={update}

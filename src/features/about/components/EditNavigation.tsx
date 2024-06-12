@@ -6,7 +6,7 @@ type Props = {
     update: () => void;
 };
 
-export const EditInformation = (
+export const EditNavigation = (
     { isEditActive, setIsEditActive, update }: Props
 ) => {
     const handleEdit = () => {

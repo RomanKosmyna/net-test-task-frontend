@@ -18,6 +18,7 @@ export const useGetAboutById = (id: string | undefined) => {
     return useQuery({
         queryKey: ['getAboutById', id],
         queryFn: () => getAboutById(id),
+        staleTime: 300000,
         retry: false,
     });
 };
