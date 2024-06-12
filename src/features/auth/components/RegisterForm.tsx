@@ -18,14 +18,14 @@ export default function RegisterForm() {
     };
 
     return (
-        <div>
-            <h1>Register</h1>
+        <div className="w-[500px] bg-card shadow-darkBorder p-5 mx-5 tablet:mx-0 rounded-lg flex flex-col items-center">
+            <h1 className="text-heading text-[45px] font-medium">Register</h1>
             <AccountStatusNavigation
                 text="Already have an account?"
                 linkRoute="/auth/login"
                 linkText="Log In"
             />
-            <div>
+            <div className="w-full mt-7">
                 <Form schema={registerSchema} onSubmit={handleRegister}>
                     {({ register, formState }) => (
                         <>
@@ -41,8 +41,12 @@ export default function RegisterForm() {
                                 error={formState.errors.password}
                                 registration={register("password")}
                             />
-                            <div className="flex justify-center">
-                                <button type="submit">
+                            <div className="flex justify-center mt-6">
+                                <button
+                                    type="submit"
+                                    className="bg-lightBlue hover:bg-darkerLightBlue transition-opacity hover:opacity-90
+                                    rounded-md px-8 py-2 text-heading font-bold"
+                                >
                                     Register
                                 </button>
                             </div>

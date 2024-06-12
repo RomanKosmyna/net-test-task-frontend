@@ -15,12 +15,12 @@ export const FieldWrapper = (props: FieldWrapperProps) => {
   
   return (
     <div>
-      <label>
+      <label className="text-heading font-medium">
         {label}
         <div>{children}</div>
       </label>
       {error?.message && (
-        <div role="alert" aria-label={error.message}>
+        <div role="alert" aria-label={error.message} className="font-medium text-[#B91C1C]">
           {error.message}
         </div>
       )}
