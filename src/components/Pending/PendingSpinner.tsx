@@ -2,7 +2,7 @@ import { Spinner } from "@chakra-ui/react";
 
 export default function PendingSpinner() {
     return (
-        <div className="w-full flex min-h-[calc(100vh-84px)] justify-center items-center">
+        <div className="w-full flex flex-grow justify-center items-center">
             <Spinner
                 thickness='4px'
                 speed='0.65s'

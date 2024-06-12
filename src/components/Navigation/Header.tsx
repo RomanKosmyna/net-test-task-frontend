@@ -5,7 +5,7 @@ const Header = () => {
     const { isLoggedIn, logout } = useAuth();
 
     return (
-        <header className="w-full h-[84px] max-w-[1100px] flex justify-between items-center">
+        <header className="w-full h-[84px] max-w-[1100px] flex justify-between items-center px-5">
             <nav>
                 <ul className="flex gap-5">
                     <li>

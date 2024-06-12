@@ -7,6 +7,7 @@ import RegisterForm from "@features/auth/components/RegisterForm";
 import UrlPage from "@features/url/components/UrlPage";
 import { UrlInformationPage } from "@features/url/components/UrlInformationPage";
 import ProtectectedRoute from "./ProtectedRoute";
+import { AboutPage } from "@features/about/components/AboutPage";
 
 export const router = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
                                 <UrlInformationPage />
                             </ProtectectedRoute>
                         )
+                    },
+                    {
+                        path: "/about",
+                        element: <AboutPage />
                     }
                 ]
             },

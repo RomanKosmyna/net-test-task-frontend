@@ -25,6 +25,7 @@ export const useGetUrlById = (token: string | null, id: string | undefined) => {
     return useQuery({
         queryKey: ['getUrlById', id],
         queryFn: () => getUrlById(token, id),
+        staleTime: 300000,
         retry: false,
     });
 };
